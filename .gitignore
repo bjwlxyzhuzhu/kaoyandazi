@@ -1,0 +1,16 @@
+node_modules/
+dist/
+data/
+.env
+*.log
+.DS_Store
+.tools/
+
+# 编辑器/截图产生的临时图片
+/*.png
+
+# 本地编辑器配置（含本机路径）
+.claude/
+
+# 便于离线传输的 git 打包文件
+kaoyandazi.bundle

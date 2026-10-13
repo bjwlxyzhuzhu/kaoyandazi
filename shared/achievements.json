@@ -1,0 +1,100 @@
+{
+  "_说明": "成果目录（PRD 附录C）。改内容不用改代码。时间规律一栏按 PRD 原文，一律以官方通知为准。",
+  "stages": ["了解中", "组队/找导师", "选题", "推进中", "提交", "已完成", "已放弃"],
+  "tiers": {
+    "reach": "冲一冲",
+    "steady": "有把握",
+    "foundation": "打基础"
+  },
+  "types": ["竞赛", "大创", "证书", "实习", "科研"],
+  "catalog": [
+    {
+      "type": "竞赛",
+      "name": "中国国际大学生创新大赛",
+      "timing": "通常春季校赛、夏季省赛、秋季国赛",
+      "who": "各专业，团队",
+      "ai_help": "行业调研框架；追问商业模式漏洞；路演PPT结构与答辩问题库",
+      "caution": "先看本校创新创业学院通知",
+      "major_groups": [],
+      "paths": ["kaoyan", "baoyan", "job"],
+      "tier": "reach"
+    },
+    {
+      "type": "竞赛",
+      "name": "\"挑战杯\"系列竞赛",
+      "timing": "课外学术科技作品竞赛与创业计划竞赛通常隔年交替举办",
+      "who": "各专业",
+      "ai_help": "问卷设计与数据分析；文献检索；模拟评审追问",
+      "caution": "关注校团委通知；社会调查类作品对文科、艺术类学生也很友好",
+      "major_groups": [],
+      "paths": ["kaoyan", "baoyan", "job", "gongkao"],
+      "tier": "reach"
+    },
+    {
+      "type": "大创",
+      "name": "大学生创新创业训练计划",
+      "timing": "多数学校春季立项，周期1—2年",
+      "who": "本科生团队 + 指导教师",
+      "ai_help": "梳理研究现状；扮演评审追问；写数据处理或原型代码",
+      "caution": "先找指导老师，带着具体问题去谈",
+      "major_groups": [],
+      "paths": ["kaoyan", "baoyan", "job"],
+      "tier": "steady"
+    },
+    {
+      "type": "竞赛",
+      "name": "学科竞赛（数学建模、计算机设计、英语、专业类等）",
+      "timing": "全国大学生数学建模竞赛通常在每年9月；其他各不相同",
+      "who": "按专业",
+      "ai_help": "解释陌生模型和算法；出变式题",
+      "caution": "优先选全国大学生竞赛榜单内的赛事",
+      "major_groups": ["理工", "经管"],
+      "paths": ["kaoyan", "baoyan", "job"],
+      "tier": "steady"
+    },
+    {
+      "type": "竞赛",
+      "name": "新文科实践创新大赛等交叉类赛事",
+      "timing": "以当年通知为准",
+      "who": "文科、艺术、交叉专业",
+      "ai_help": "AIGC原型；地方文化资料整理；视频分镜",
+      "caution": "宝鸡的青铜器、钛产业等地方特色是好选题",
+      "major_groups": ["文史", "艺术", "教育"],
+      "paths": ["kaoyan", "baoyan", "job"],
+      "tier": "steady"
+    },
+    {
+      "type": "证书",
+      "name": "大学英语四、六级",
+      "timing": "每年6月、12月",
+      "who": "所有人",
+      "ai_help": "口语陪练；按真题风格出题；作文错因分类",
+      "caution": "报名以本校教务通知为准",
+      "major_groups": [],
+      "paths": ["kaoyan", "baoyan", "job", "gongkao", "abroad"],
+      "tier": "foundation"
+    },
+    {
+      "type": "实习",
+      "name": "科研助理、企业实习、社会实践",
+      "timing": "寒暑假最集中",
+      "who": "所有人",
+      "ai_help": "简历表达（不编经历）；模拟面试；把实习问题发展为研究选题",
+      "caution": "经历必须真实",
+      "major_groups": [],
+      "paths": ["job", "kaoyan", "gongkao", "abroad"],
+      "tier": "steady"
+    },
+    {
+      "type": "科研",
+      "name": "文献阅读与选题（对接学术进阶）",
+      "timing": "建议大二起步，持续进行",
+      "who": "所有人",
+      "ai_help": "检索式设计；精读追问；主题分类；选题追问",
+      "caution": "平台不做写作和投稿；警惕代写代发和掠夺性期刊",
+      "major_groups": [],
+      "paths": ["kaoyan", "baoyan"],
+      "tier": "foundation"
+    }
+  ]
+}

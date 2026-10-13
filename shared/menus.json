@@ -1,0 +1,105 @@
+{
+  "_说明": "各流程的菜单阶段（PRD M4—M7）。全部点选，不调用大模型。type: single|multi|slider|select|text。",
+  "flows": {
+    "intake": {
+      "title": "入学访谈 · 菜单",
+      "note": "这8题只做整理，不会调用AI。先点选，再进入追问。",
+      "questions": [
+        { "key": "grade", "label": "你现在的年级", "type": "single", "options": ["大一", "大二", "大三", "大四", "其他"], "required": true },
+        { "key": "major_group", "label": "你的专业大类", "type": "single", "options": ["理工", "经管", "文史", "艺术", "教育", "其他"], "required": true },
+        { "key": "tendency", "label": "你目前的倾向", "type": "single", "options": ["考研", "保研", "就业", "考公选调", "出国", "还没想好"], "required": true },
+        { "key": "weekly_hours", "label": "每周能稳定投入的时间（小时）", "type": "slider", "min": 0, "max": 40, "step": 1, "required": true },
+        { "key": "english", "label": "英语情况", "type": "single", "options": ["未考四级", "过四级", "过六级", "六级高分"], "required": true },
+        { "key": "rank", "label": "本专业成绩大致排名", "type": "single", "options": ["前10%", "前30%", "中等", "靠后", "不清楚"], "required": true },
+        { "key": "achievements", "label": "已有成果（可多选）", "type": "multi", "options": ["竞赛", "大创", "论文", "实习", "学生工作", "暂无"], "required": true },
+        { "key": "troubles", "label": "最大的困扰（可多选）", "type": "multi", "options": ["不知道选什么", "信息太乱", "坚持不下去", "基础薄弱", "时间不够", "家人意见", "其他"], "required": true }
+      ]
+    },
+    "school": {
+      "title": "择校工作台 · 筛选条件",
+      "note": "先定条件，再看候选。不绑定自己的Key也可以手动填写比较表。",
+      "questions": [
+        { "key": "subject", "label": "目标学科门类与专业", "type": "text", "placeholder": "例如：计算机科学与技术（0812）", "required": true, "max": 60 },
+        { "key": "region", "label": "地域偏好（可多选）", "type": "multi", "options": ["陕西", "西北", "一线城市", "华东", "华中", "西南", "不限"], "required": true },
+        { "key": "level", "label": "层次倾向", "type": "single", "options": ["只考虑211及以上", "211/双一流优先", "普通本科也可以", "看专业实力不看牌子"], "required": true },
+        { "key": "degree", "label": "学硕或专硕", "type": "single", "options": ["学硕", "专硕", "都可以", "还没想好"], "required": true },
+        { "key": "cross", "label": "是否接受跨考", "type": "single", "options": ["就是本专业", "小跨（相近专业）", "大跨", "还没想好"], "required": true },
+        { "key": "risk", "label": "风险偏好", "type": "single", "options": ["稳健：一次上岸最重要", "均衡：愿意冲一冲", "激进：想去最好的"], "required": true }
+      ]
+    },
+    "plan": {
+      "title": "学习方案 · 菜单",
+      "note": "每周可投入时间会从画像带入，可以修改。",
+      "questions": [
+        { "key": "weekly_hours", "label": "每周可投入时间（小时）", "type": "slider", "min": 3, "max": 40, "step": 1, "required": true },
+        { "key": "slots", "label": "可用时段（可多选）", "type": "multi", "options": ["早晨", "上午", "下午", "晚上", "周末"], "required": true },
+        { "key": "focus", "label": "本阶段重点（可多选）", "type": "multi", "options": ["英语", "数学", "政治", "专业课", "成绩与基础", "成果铺垫", "科研阅读"], "required": true },
+        { "key": "research", "label": "是否包含科研阅读", "type": "single", "options": ["包含（推荐）", "暂时不包含"], "required": true },
+        { "key": "rhythm", "label": "节奏偏好", "type": "single", "options": ["稳扎稳打", "适度挑战"], "required": true }
+      ]
+    },
+    "weekly": {
+      "title": "周复盘 · 菜单",
+      "note": "本周完成率会自动算出来。",
+      "questions": [
+        { "key": "blockers", "label": "本周最大的卡点（可多选）", "type": "multi", "options": ["时间不够", "任务太多", "精力不集中", "基础不牢", "不知道从哪开始", "状态不好", "其他"], "required": true },
+        { "key": "adjust", "label": "下周打算怎么调整", "type": "multi", "options": ["减量", "换时段", "拆小任务", "保持"], "required": true },
+        { "key": "summary", "label": "一句话总结这一周", "type": "textarea", "required": true, "max": 100, "min": 10 }
+      ]
+    },
+    "research": {
+      "title": "学术进阶 · 寻源（检索导师）",
+      "note": "PRD 第5章 M11。先把模糊的兴趣说清楚，再变成能用的检索式。全部点选，不调用大模型。",
+      "questions": [
+        { "key": "interest_from", "label": "研究兴趣来自哪里（可多选）", "type": "multi", "options": ["专业课", "竞赛项目", "生活观察", "导师方向", "实习经历", "还没想好"], "required": true },
+        { "key": "lang", "label": "文献语言", "type": "single", "options": ["中文", "英文", "都要"], "required": true },
+        { "key": "year_from", "label": "只看哪一年之后的文献（留空表示不限）", "type": "text", "placeholder": "例如：2020", "max": 4 },
+        { "key": "topic", "label": "一句话说说你想研究的大致方向", "type": "textarea", "required": true, "max": 120, "min": 4 }
+      ]
+    },
+    "research_read": {
+      "title": "学术进阶 · 照卷（阅读导师）",
+      "note": "精读一篇文献。先自己说，再让导师追问方法与证据。",
+      "questions": [
+        { "key": "purpose", "label": "这次阅读的目的", "type": "single", "options": ["了解领域", "学方法", "找空白"], "required": true },
+        { "key": "source", "label": "文献从哪里来", "type": "single", "options": ["知识库中选", "上传PDF", "粘贴摘要"], "required": true }
+      ]
+    },
+    "research_classify": {
+      "title": "学术进阶 · 织理（分类导师）",
+      "note": "把读过的文献理成主题树，顺手标出有依据的研究空白。",
+      "questions": [
+        { "key": "granularity", "label": "分类粒度", "type": "single", "options": ["粗", "细"], "required": true },
+        { "key": "basis", "label": "按什么分", "type": "single", "options": ["主题", "方法", "对象"], "required": true }
+      ]
+    },
+    "research_topic": {
+      "title": "学术进阶 · 问枢（选题导师）",
+      "note": "把读过的文献收敛成一个真能做的研究问题。选题由你自己定。",
+      "questions": [
+        { "key": "purpose", "label": "选题用途", "type": "single", "options": ["大创", "竞赛", "复试陈述", "兴趣"], "required": true },
+        { "key": "resources", "label": "你手上有什么可用资源（可多选）", "type": "multi", "options": ["数据", "导师", "设备", "时间", "都没有"], "required": true }
+      ]
+    },
+    "interview": {
+      "title": "复试模拟 · 菜单",
+      "note": "AI模拟，不代表真实院校考官，题目非真题。全部点选，不调用AI。",
+      "questions": [
+        { "key": "target", "label": "目标院校与专业（从择校比较表带入，可改）", "type": "text", "placeholder": "例如：西北大学 学科教学（语文）", "required": true, "max": 60 },
+        { "key": "form", "label": "形式", "type": "single", "options": ["线下", "线上"], "required": true },
+        { "key": "duration", "label": "时长", "type": "single", "options": ["10分钟", "20分钟", "30分钟"], "required": true },
+        { "key": "examiners", "label": "考官组合（主考衡言必选）", "type": "multi", "options": ["格物｜专业考官", "远帆｜英语考官", "守正｜综合考官", "鉴微｜导师视角"], "required": false },
+        { "key": "difficulty", "label": "难度", "type": "single", "options": ["温和", "标准", "压力"], "required": true },
+        { "key": "rehearsal", "label": "是否先让数字分身彩排一遍（需要已生成分身）", "type": "single", "options": ["不需要", "先让分身彩排"], "required": true }
+      ]
+    },
+    "achievement": {
+      "title": "成果铺垫 · 成蹊（成果导师）",
+      "note": "先看你走到哪一步、最缺什么，再一起定下一步。教练不代写申报书和作品正文。",
+      "questions": [
+        { "key": "stage", "label": "你现在的成果项目在哪个阶段", "type": "single", "options": ["了解中", "组队/找导师", "选题", "推进中", "提交", "已完成"], "required": true },
+        { "key": "need", "label": "你现在最需要的帮助（可多选）", "type": "multi", "options": ["弄清报名条件与时间", "想选题方向", "找指导老师怎么谈", "材料结构怎么搭", "答辩或路演怎么准备", "推进不下去了"], "required": true }
+      ]
+    }
+  }
+}

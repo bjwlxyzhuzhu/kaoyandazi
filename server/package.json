@@ -1,0 +1,20 @@
+{
+  "name": "shanhai-wenzhi-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "山海问知 后端（Node.js 22 + Express + node:sqlite）",
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "nodemailer": "^7.0.13",
+    "pdfjs-dist": "^6.4.299"
+  }
+}

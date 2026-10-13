@@ -1,0 +1,63 @@
+{
+  "_说明": "导师团会议类型（PRD M18）。tier 决定用哪把 Key：basic 用平台 Key（每轮最多2位导师、不联网）；advanced 用学生自己的 Key。defaults 是默认参会导师，司南会按当前站点、@、静音名单再调整。",
+  "max_rounds": 10,
+  "max_speakers_per_round": { "basic": 2, "advanced": 3 },
+  "modes": [
+    {
+      "key": "weekly",
+      "name": "周复盘会",
+      "tier": "basic",
+      "question": "这一周做得怎么样，下周怎么调整？",
+      "desc": "回顾本周的打卡与完成率，定下下周的调整。",
+      "defaults": ["planner", "companion", "method"],
+      "product": "本周复盘纪要、下周调整的行动项"
+    },
+    {
+      "key": "direction",
+      "name": "方向研讨会",
+      "tier": "advanced",
+      "question": "我该选哪条路，各自的代价是什么？",
+      "desc": "把几条路的利弊摊开讲，最后你自己定。",
+      "defaults": ["pathway", "senior", "advisor_view"],
+      "product": "各路径的利弊对照，你的倾向与理由"
+    },
+    {
+      "key": "school_review",
+      "name": "择校评审会",
+      "tier": "advanced",
+      "question": "我这份院校比较表还有什么问题？",
+      "desc": "会前请先在“选定目标”里填好比较表，会上一起审。",
+      "defaults": ["school", "policy", "strategist"],
+      "product": "分层比较表的审查意见与待核验清单"
+    },
+    {
+      "key": "stuck",
+      "name": "卡住了求助",
+      "tier": "basic",
+      "question": "我卡住了，今天能做的一小步是什么？",
+      "desc": "不谈大计划，只找一个今天就能做的动作。",
+      "defaults": ["companion", "method", "wellbeing"],
+      "product": "一个今天就能做的小行动"
+    },
+    {
+      "key": "research",
+      "name": "科研组会",
+      "tier": "advanced",
+      "question": "下一篇读什么，选题怎么改？",
+      "desc": "围绕阅读与选题讨论。学术进阶的完整功能在阶段5开放。",
+      "defaults": ["research_search", "research_read", "research_topic"],
+      "product": "下一篇要读的文献与选题修改意见",
+      "stage": 5
+    },
+    {
+      "key": "free",
+      "name": "自由讨论",
+      "tier": "advanced",
+      "question": "我想同时听听几位导师的意见。",
+      "desc": "自己选最多4位导师，聊你想聊的。",
+      "defaults": ["strategist", "senior", "method"],
+      "product": "会议纪要"
+    }
+  ],
+  "_保留导师说明": "wellbeing（静岚）在“卡住了求助”里默认参会，学生可以移除；所有会议都可以静音任意导师。companion 表示学生当前选择的陪伴导师。"
+}

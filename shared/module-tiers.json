@@ -1,0 +1,24 @@
+{
+  "_说明": "模块分级表（PRD 5.2）。tier: basic=平台 Key，advanced=学生自带 Key，none=不调用大模型。教师可在后台调整 basic/advanced，覆盖值保存在 settings.module_tiers。",
+  "modules": [
+    { "id": "M4_intake", "name": "入学访谈与画像", "module": "M4", "tier": "basic", "note": "主线第2站", "route": "/road", "stage": 2 },
+    { "id": "M5_path", "name": "路径选择", "module": "M5", "tier": "basic", "note": "主线第3站", "route": "/road", "stage": 2 },
+    { "id": "M7_plan", "name": "学习方案生成与调整", "module": "M7", "tier": "basic", "note": "主线第5站", "route": "/road", "stage": 2 },
+    { "id": "M9_companion", "name": "考研搭子：对话与长期记忆，不联网", "module": "M9", "tier": "basic", "note": "每天都会用", "route": "/mentors", "stage": 1 },
+    { "id": "M9_memory", "name": "记忆整理器", "module": "M9", "tier": "basic", "note": "后台自动执行", "route": null, "stage": 3 },
+    { "id": "M18_basic", "name": "导师团基础版：周复盘会、卡住了求助，每轮最多2位导师，不联网", "module": "M18", "tier": "basic", "note": "每轮按发言导师数计入额度", "route": "/mentors", "stage": 4 },
+    { "id": "M13_basic", "name": "复试模拟基础版：衡言单考官、10分钟、每周2次", "module": "M13", "tier": "basic", "note": "保证人人能练", "route": "/mentors", "stage": 7 },
+    { "id": "M19_basic", "name": "数字分身：建立、查看、校正、每周更新建议", "module": "M19", "tier": "basic", "note": "只使用平台内数据与手填内容", "route": "/me", "stage": 6 },
+
+    { "id": "M6_school", "name": "择校工作台的 AI 对话与联网检索", "module": "M6", "tier": "advanced", "note": "不绑定也能手动填写比较表", "route": "/road", "stage": 2 },
+    { "id": "M11_research", "name": "学术进阶：检索、阅读、分类、选题四个智能体", "module": "M11", "tier": "advanced", "note": "不绑定也能用关键词检索文献、核验 DOI", "route": "/study", "stage": 5 },
+    { "id": "M12_kbqa", "name": "知识库问答", "module": "M12", "tier": "advanced", "note": "不绑定也能录入、导入、导出", "route": "/study", "stage": 5 },
+    { "id": "M10_coach", "name": "成果教练", "module": "M10", "tier": "advanced", "note": "不绑定也能浏览成果目录、登记项目", "route": "/study", "stage": 5 },
+    { "id": "M13_full", "name": "复试模拟智能体群：完整考官组、彩排模式", "module": "M13", "tier": "advanced", "note": "基础版见上", "route": "/mentors", "stage": 7 },
+    { "id": "M18_full", "name": "导师团完整版：全部会议类型、3—4位导师、联网检索、分身参会", "module": "M18", "tier": "advanced", "note": "基础版见上", "route": "/mentors", "stage": 4 },
+    { "id": "M19_full", "name": "数字分身：上传资料解析、参加会议、复试彩排、对话未来的自己", "module": "M19", "tier": "advanced", "note": "分身档案与校正不需要自带 Key", "route": "/me", "stage": 6 },
+    { "id": "M9_search", "name": "搭子的联网检索与深度分析（推理模型）", "module": "M9", "tier": "advanced", "note": "不绑定时搭子照常对话，只是不联网", "route": "/mentors", "stage": 3 },
+    { "id": "M15_lab", "name": "API 实验室", "module": "M15", "tier": "advanced", "note": "第六章课堂任务", "route": "/me", "stage": 6 }
+  ],
+  "noKey": "课堂与互评、打卡与周复盘、干预与提醒、比较表手动录入、知识库录入与导入导出、文献关键词检索与核验、考核档案袋与行动方案汇编、AI使用说明统计"
+}

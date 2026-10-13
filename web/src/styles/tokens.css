@@ -1,0 +1,66 @@
+/* 山海问知 设计令牌（PRD 11.2）。所有颜色、圆角、间距只从这里取。 */
+:root {
+  --c-brand: #2f6f62;
+  --c-brand-strong: #255a4f;
+  --c-bg: #f5f6f3;
+  --c-paper: #fbfbf9;
+  --c-text: #1c2430;
+  --c-muted: #59665f;
+  --c-divider: #dadfd8;
+  --c-control-border: #778a7f;
+  --c-jade-light: #a8c7b7;
+  --c-bronze: #9a8054;
+  --c-stamp: #b8382a; /* 仅用于真实打卡成功后的印章 */
+  --c-danger: #9b2c22;
+  --c-warn: #7a5a12;
+  --c-focus: #2f6f62;
+
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 24px;
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+
+  --font-serif: 'Songti SC', 'STSong', 'SimSun', serif;
+  --font-sans: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+
+  --fs-body: 16px;
+  --fs-label: 14px;
+  --lh-body: 1.65;
+
+  --nav-w: 72px;
+  --nav-w-open: 224px;
+  --content-max: 1200px;
+  --chat-max: 720px;
+
+  /* 表面：Paper 近不透明；Mist 导航与浮动工具条；Liquid 用户打开的抽屉/弹层 */
+  --surface-paper: rgba(251, 251, 249, 0.98);
+  --surface-mist: rgba(245, 246, 243, 0.8);
+  --surface-liquid: rgba(250, 250, 248, 0.88);
+  --shadow-panel: 0 18px 48px rgba(28, 36, 48, 0.16), 0 2px 6px rgba(28, 36, 48, 0.06);
+
+  /* 固定层级：内容 < 导航 < 遮罩 < 弹层 < 通知 */
+  --z-content: 1;
+  --z-nav: 20;
+  --z-scrim: 40;
+  --z-overlay: 50;
+  --z-toast: 70;
+
+  --dur-open: 280ms;
+  --dur-close: 200ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-open: 100ms;
+    --dur-close: 100ms;
+  }
+}

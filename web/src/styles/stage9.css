@@ -1,0 +1,60 @@
+/* 阶段9：三维山水、液态毛玻璃的降级、动效编排（PRD 11.3—11.5、16.1） */
+
+/* ---------- 首页舞台：山水约占首屏 50—60%，文字放在可读表面上 ---------- */
+.today-stage { position: relative; min-height: min(58vh, 560px); margin: calc(-1 * var(--s-6)) calc(-1 * var(--s-5)) var(--s-5); display: flex; align-items: flex-start; }
+.scene { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
+.scene-2d-svg { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 62%; transition: opacity 600ms var(--ease-out); }
+.scene-3d { position: absolute; inset: 0; opacity: 0; transition: opacity 600ms var(--ease-out); }
+.scene-ready .scene-3d { opacity: 1; }
+.scene-ready .scene-2d-svg { opacity: 0; }
+.scene-canvas { position: absolute !important; inset: 0; }
+.scene-note { position: absolute; right: var(--s-4); bottom: var(--s-3); margin: 0; pointer-events: auto; font-size: var(--fs-label); color: var(--c-muted); background: var(--surface-paper); border: 1px solid var(--c-divider); border-radius: var(--r-sm); padding: 4px 4px 4px 12px; display: flex; align-items: center; gap: 4px; }
+.today-stage .today-hero {
+  position: relative; z-index: 1; margin: var(--s-6) var(--s-5) 0; max-width: 680px; padding: var(--s-5) var(--s-6);
+  background: var(--surface-mist); border: 1px solid rgba(255, 255, 255, 0.75); border-radius: var(--r-lg);
+  backdrop-filter: blur(18px) saturate(1.05); -webkit-backdrop-filter: blur(18px) saturate(1.05);
+  box-shadow: 0 8px 28px rgba(28, 36, 48, 0.08);
+}
+@media (max-width: 767px) {
+  .today-stage { margin: calc(-1 * var(--s-5)) calc(-1 * var(--s-4)) var(--s-4); min-height: 0; padding-bottom: 38vw; }
+  .today-stage .today-hero { margin: var(--s-4) var(--s-3) 0; padding: var(--s-4); }
+  .scene-2d-svg { height: 40%; }
+  .scene-note { left: var(--s-3); right: var(--s-3); }
+}
+
+/* ---------- 简洁模式与滤镜不支持：毛玻璃退为 ≥0.96 不透明纸白 + 清晰边框，结构与功能不变 ---------- */
+body.simple-mode .nav, body.simple-mode .tabbar, body.simple-mode .panel, body.simple-mode .today-stage .today-hero, body.simple-mode .float-bar {
+  background: rgba(251, 251, 249, 0.97) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+  border-color: var(--c-divider) !important;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .today-stage .today-hero, .float-bar { background: rgba(251, 251, 249, 0.97); border-color: var(--c-divider); }
+}
+@media print { .scene { display: none; } }
+
+/* ---------- 动效编排（11.5） ---------- */
+/* 打开抽屉 280ms（tokens：--dur-open），关闭 200ms（--dur-close），在 base.css 的 .panel 上 */
+/* 选项反馈：描边与勾号 150ms */
+.option, .chip { transition: border-color 150ms var(--ease-out), background-color 150ms var(--ease-out); }
+.chip[aria-pressed='true']::before, .chip[aria-checked='true']::before, .option[aria-pressed='true'] .k { animation: tick-in 150ms var(--ease-out); }
+@keyframes tick-in { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+/* 导师切换：图标与名字淡入 200ms，正文不动 */
+.mentor-chip, .msg-meta { animation: fade-in 200ms var(--ease-out); }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+/* 确认产物：卡片轻收拢 + “已存入档案”（保存成功后才加 .saved） */
+.saved { animation: saved-pop 360ms var(--ease-out); }
+@keyframes saved-pop { 0% { transform: scale(1); } 40% { transform: scale(0.985); } 100% { transform: none; } }
+/* 导师团：正在发言的导师图标轻亮 */
+.speaking .mentor-icon { box-shadow: 0 0 0 3px rgba(47, 111, 98, 0.25); transition: box-shadow 200ms var(--ease-out); }
+
+/* ---------- 无障碍 ---------- */
+.skip-link { position: absolute; left: var(--s-3); top: -60px; z-index: var(--z-toast); background: var(--c-brand); color: #fff; padding: 12px 16px; border-radius: var(--r-sm); text-decoration: none; }
+.skip-link:focus { top: var(--s-3); }
+/* 焦点环：2px 绿色，与边框留 2px 间隙（11.4） */
+.btn:focus-visible, .chip:focus-visible, .option:focus-visible, a:focus-visible, .nav-item:focus-visible, .source-tag:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+
+/* 减少动画：取消镜头、视差、弹性与持续雾动画；开合 ≤120ms 或直接切换 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+  .scene-2d-svg, .scene-3d, .panel, .scrim, .nav { transition-duration: 100ms !important; }
+}

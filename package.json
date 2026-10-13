@@ -1,0 +1,15 @@
+{
+  "name": "shanhai-wenzhi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "山海问知：以学习者为中心的考研智能体工作台",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix web install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:web": "npm --prefix web run dev",
+    "build": "npm --prefix web run build",
+    "start": "npm --prefix server start",
+    "test": "npm --prefix server test",
+    "typecheck": "npm --prefix web run typecheck"
+  }
+}

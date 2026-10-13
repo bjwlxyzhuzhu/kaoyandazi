@@ -1,0 +1,106 @@
+{
+  "_说明": "11站主线（PRD 4.3）。站名必须使用原表名称，不能为了山水叙事改写教学含义。stage 为第15章开发阶段；route 为前端工作页；next 为完成后解锁的站。",
+  "stations": [
+    {
+      "no": 1, "key": "prepare",
+      "name": "出发准备",
+      "full": "出发准备：注册、AI使用须知、前测问卷、认识基础与高阶模块",
+      "chapter": "第1章", "product": "前测",
+      "goal": "读完AI使用须知并同意，了解基础与高阶模块的差别，填完前测问卷，选一位陪伴导师。",
+      "mentorPrimary": "gentle", "mentorCo": "policy",
+      "route": "/road/1", "stage": 2
+    },
+    {
+      "no": 2, "key": "know-yourself",
+      "name": "认识自己",
+      "full": "认识自己：入学访谈 → 画像",
+      "chapter": "第2章", "product": "个人画像",
+      "goal": "用菜单题和追问把现在的情况说清楚，生成并确认你的画像。",
+      "mentorPrimary": "intake", "mentorCo": "wellbeing",
+      "route": "/road/2", "stage": 2
+    },
+    {
+      "no": 3, "key": "choose-direction",
+      "name": "选择方向",
+      "full": "选择方向：多路径比较 → 自主选择并说明理由",
+      "chapter": "第2章", "product": "路径选择与理由",
+      "goal": "比较几条路的利弊与代价，自己选定一条，并写下不少于30字的理由。",
+      "mentorPrimary": "pathway", "mentorCo": "senior",
+      "route": "/road/3", "stage": 2
+    },
+    {
+      "no": 4, "key": "set-target",
+      "name": "选定目标",
+      "full": "选定目标：择校工作台 → 分层比较表",
+      "chapter": "第2章", "product": "目标院校信息分析表（15%）",
+      "goal": "按条件筛出冲刺/稳妥/保底三层候选，逐条核验，写下选择依据和不确定之处。",
+      "mentorPrimary": "school", "mentorCo": "policy",
+      "route": "/road/4", "stage": 2
+    },
+    {
+      "no": 5, "key": "make-plan",
+      "name": "制定方案",
+      "full": "制定方案：学习方案 → 每日任务",
+      "chapter": "第3章", "product": "阶段学习计划（15%的一部分）",
+      "goal": "生成一份贴合你时间的阶段计划，改到能用，再点“采用这份方案”。",
+      "mentorPrimary": "planner", "mentorCo": "method",
+      "route": "/road/5", "stage": 2
+    },
+    {
+      "no": 6, "key": "keep-going",
+      "name": "坚持执行",
+      "full": "坚持执行：打卡、复盘、干预",
+      "chapter": "第3章", "product": "复盘记录（15%的另一部分）",
+      "goal": "每天勾任务、写一句真实的复盘；每周做一次菜单式周复盘。",
+      "mentorPrimary": null, "mentorCo": "planner",
+      "note": "主讲为学生在第2站选择的陪伴导师（栖云/砺行/观澜/知趣）",
+      "route": "/road/6", "stage": 2
+    },
+    {
+      "no": 7, "key": "knowledge-base",
+      "name": "建知识库",
+      "full": "建知识库：备考空间 + 科研空间",
+      "chapter": "第4、5章", "product": "个人备考知识库（20%）",
+      "goal": "整理知识清单、错题和学习笔记，建立你自己的备考与科研空间。",
+      "mentorPrimary": "method", "mentorCo": "research_read",
+      "route": "/road/7", "stage": 5
+    },
+    {
+      "no": 8, "key": "academic",
+      "name": "学术进阶",
+      "full": "学术进阶：检索 → 阅读 → 分类 → 选题",
+      "chapter": "第5章", "product": "阅读卡、选题卡（并入知识库）",
+      "goal": "从检索式开始，读几篇真文献，做阅读卡，最后收敛出一个可做的问题。",
+      "mentorPrimary": "research_search", "mentorCo": "advisor_view",
+      "route": "/road/8", "stage": 5
+    },
+    {
+      "no": 9, "key": "achievements",
+      "name": "成果铺垫",
+      "full": "成果铺垫：竞赛、大创、证书",
+      "chapter": "贯穿", "product": "成果项目登记",
+      "goal": "登记你想参加的竞赛或大创，跟着阶段推进，不用等准备好才开始。",
+      "mentorPrimary": "achievement", "mentorCo": "research_topic",
+      "route": "/road/9", "stage": 5
+    },
+    {
+      "no": 10, "key": "interview",
+      "name": "复试准备",
+      "full": "复试准备：材料与模拟问答",
+      "chapter": "第7章", "product": "复试模拟记录",
+      "goal": "练一次模拟问答，把答不好的问题留下来重练。",
+      "mentorPrimary": "interview", "mentorCo": "examiner_major",
+      "route": "/road/10", "stage": 7
+    },
+    {
+      "no": 11, "key": "final",
+      "name": "结课",
+      "full": "结课：行动方案 + AI使用与核验说明 + 展示 + 互评 + 后测",
+      "chapter": "第8章", "product": "终结性考核（40%）",
+      "goal": "汇编行动方案，写反思与AI使用说明，参加展示和互评，完成后测。",
+      "mentorPrimary": "strategist", "mentorCo": "profile",
+      "route": "/road/11", "stage": 7
+    }
+  ],
+  "crossCutting": "“课堂任务与互评（10%）”贯穿各章（M2）"
+}

@@ -1,0 +1,7 @@
+node_modules
+**/node_modules
+web/dist
+data
+.env
+*.png
+山海问知PRD.md
