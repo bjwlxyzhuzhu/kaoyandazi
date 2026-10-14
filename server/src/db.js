@@ -70,6 +70,19 @@ function seed() {
     const code = config.defaultInviteCode || crypto.randomBytes(3).toString('hex').toUpperCase();
     db.prepare('INSERT INTO classes(name, invite_code, is_sandbox) VALUES(?, ?, 0)').run('默认班级', code);
     console.log(`[初始化] 已创建默认班级，邀请码：${code}（可在教师后台修改）`);
+  } else if (config.defaultInviteCode) {
+    // 设置了 DEFAULT_INVITE_CODE 时以环境变量为准，部署后再改环境变量也能生效
+    const cur = db.prepare('SELECT invite_code FROM classes WHERE id = ?').get(cls.id).invite_code;
+    if (cur !== config.defaultInviteCode) {
+      db.prepare('UPDATE classes SET invite_code = ? WHERE id = ?').run(config.defaultInviteCode, cls.id);
+      console.log(`[初始化] 默认班级邀请码已按 DEFAULT_INVITE_CODE 更新为：${config.defaultInviteCode}`);
+    }
+  } else {
+    const cur = db.prepare('SELECT invite_code FROM classes WHERE id = ?').get(cls.id).invite_code;
+    console.log(`[初始化] 默认班级邀请码：${cur}`);
+  }
+  if (!config.teacherAccounts.length) {
+    console.warn('[配置] 未设置 TEACHER_ACCOUNTS，教师端无法登录。格式：用户名:密码');
   }
   // 评委沙箱班级：评委测试账号都放这里，任何统计都排除它（PRD M17）
   if (!db.prepare('SELECT id FROM classes WHERE is_sandbox = 1 LIMIT 1').get()) {
