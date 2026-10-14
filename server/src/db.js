@@ -83,6 +83,9 @@ function seed() {
   }
   if (!config.teacherAccounts.length) {
     console.warn('[配置] 未设置 TEACHER_ACCOUNTS，教师端无法登录。格式：用户名:密码');
+  } else {
+    const desc = config.teacherAccounts.map((t) => `${t.username}（${/^scrypt[:$]/.test(t.password) ? '哈希' : `密码 ${t.password.length} 位`}）`);
+    console.log(`[配置] 教师账号：${desc.join('、')}`);
   }
   // 评委沙箱班级：评委测试账号都放这里，任何统计都排除它（PRD M17）
   if (!db.prepare('SELECT id FROM classes WHERE is_sandbox = 1 LIMIT 1').get()) {

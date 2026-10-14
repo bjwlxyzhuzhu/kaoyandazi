@@ -18,14 +18,15 @@ const env = process.env;
 const num = (v, d) => (v === undefined || v === '' || Number.isNaN(Number(v)) ? d : Number(v));
 
 function parseTeachers(raw) {
-  // 格式：用户名:密码,用户名:密码
+  // 格式：用户名:密码,用户名:密码。部署平台常把空格、换行或引号带进值里，统一去掉
+  const clean = (s) => s.trim().replace(/^["'“”‘’]+|["'“”‘’]+$/g, '').trim();
   return String(raw || '')
     .split(',')
-    .map((s) => s.trim())
+    .map(clean)
     .filter(Boolean)
     .map((pair) => {
       const i = pair.indexOf(':');
-      return i > 0 ? { username: pair.slice(0, i).trim(), password: pair.slice(i + 1) } : null;
+      return i > 0 ? { username: clean(pair.slice(0, i)), password: clean(pair.slice(i + 1)) } : null;
     })
     .filter(Boolean);
 }
