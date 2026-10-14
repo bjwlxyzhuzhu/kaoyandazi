@@ -14,6 +14,11 @@ RUN cd web && npm run build
 
 FROM node:22.20-alpine
 ENV NODE_ENV=production DATA_DIR=/app/data PORT=3000
+# 部署默认值（部署平台上设置同名环境变量会覆盖这里）。
+# 教师密码只存 scrypt 哈希，明文不进仓库。
+ENV DEFAULT_INVITE_CODE=R5k2Wp8M \
+    SITE_URL=https://kaoyandazi.app.tokenone.work \
+    TEACHER_ACCOUNTS=teacher:scrypt:a749bf84865fe0f4aef15f24924c210a:d92c234aa02731a5d479671a2a6efa28150db83360a1224078a09b88721cf97ac017cc9b5f345858db1e55eddf76f9b31dd722d7823d5de5fb1805237be2fe4b
 WORKDIR /app
 COPY server/package.json server/package-lock.json* ./server/
 RUN cd server && (npm ci --omit=dev || npm install --omit=dev)

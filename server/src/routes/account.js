@@ -106,7 +106,11 @@ r.post('/login', authLimit, accountLimit, (req, res) => {
   // 教师账号来自环境变量 TEACHER_ACCOUNTS
   const t = config.teacherAccounts.find((a) => a.username === account);
   if (t) {
-    if (!safeEqual(t.password, password)) throw new AppError(401, 'BAD_LOGIN', '账号或密码不正确。');
+    // 允许 TEACHER_ACCOUNTS 里写 scrypt 哈希（scrypt:盐:哈希），公开仓库与镜像里就不必出现明文密码
+    const okPw = /^scrypt[:$]/.test(t.password)
+      ? verifyPassword(password, t.password.replace(/:/g, '$'))
+      : safeEqual(t.password, password);
+    if (!okPw) throw new AppError(401, 'BAD_LOGIN', '账号或密码不正确。');
     const sno = `t:${t.username}`;
     let user = db.prepare('SELECT * FROM users WHERE student_no = ?').get(sno);
     if (!user) {
